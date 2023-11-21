@@ -1,0 +1,11 @@
+.DS_Store
+.thumbs.db
+node_modules
+
+# Editor directories and files
+*.code-workspace
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
