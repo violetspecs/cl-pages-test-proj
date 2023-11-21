@@ -3,5 +3,49 @@
     <body>
         <h1>Teststeststestestsetres</h1>
         <p>Testststststst</p>
+        <input id ="country" name="country" type="text" />
+        <button id="addCountry">Add country</button>
+        <script>
+            console.log("test")
+            displayGreeting()
+
+            document.querySelector("#addCountry").addEventListener("click", () => {
+                addCountry(document.querySelector("#country").value)
+            })
+
+            async function displayGreeting() {
+                const response = await fetch("http://127.0.0.1:8788/helloworld")
+                const greeting = await response.text()
+                console.log(greeting)
+            }
+
+            async function addCountry(country) {
+                console.log(country)
+                let data = {"country": country}
+                let response = await postData("http://127.0.0.1:8788/addCountry", data)
+                const result = await response.text()
+                console.log(result)
+            }
+
+            // Example POST method implementation:
+            async function postData(url = "", data = {}) {
+                console.log(data)
+                // Default options are marked with *
+                const response = await fetch(url, {
+                    method: "POST", // *GET, POST, PUT, DELETE, etc.
+                    mode: "cors", // no-cors, *cors, same-origin
+                    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+                    credentials: "same-origin", // include, *same-origin, omit
+                    headers: {
+                    "Content-Type": "application/json",
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    redirect: "follow", // manual, *follow, error
+                    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                    body: JSON.stringify(data), // body data type must match "Content-Type" header
+                });
+                return response; // parses JSON response into native JavaScript objects
+            }
+        </script>
     </body>
 </html>

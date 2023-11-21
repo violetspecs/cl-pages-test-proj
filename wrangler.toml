@@ -1,0 +1,4 @@
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "cl-pages-test-db"
+database_id = "5219cc89-bbd1-46a2-95d5-110be0d7c7dc"
