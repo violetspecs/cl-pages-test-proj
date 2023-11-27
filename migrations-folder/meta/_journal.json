@@ -8,6 +8,13 @@
       "when": 1700566150961,
       "tag": "0000_smiling_smiling_tiger",
       "breakpoints": false
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1701086767900,
+      "tag": "0001_yielding_grey_gargoyle",
+      "breakpoints": false
     }
   ]
 }
